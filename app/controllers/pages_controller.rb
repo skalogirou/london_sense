@@ -1,4 +1,4 @@
-[class PagesController < ApplicationController
+class PagesController < ApplicationController
 	def digital_town_redirect
 		if params[:code]
 			client_secret = DIGITALTOWN_CLIENT_SECRET
