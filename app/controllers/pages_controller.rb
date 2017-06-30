@@ -18,7 +18,15 @@
 			redirect_to redirect_url and return
 			#render :json => {:status => "OK", :token => response}
 		else
-			render :json => {:status => "OK"}
+			session[:access_token] = params["accessToken"]
+			url = "https://api.digitaltown.com/sso/users"
+			request_user = HttpRequest.new({:url => url, :headers => {:authorization => "Bearer #{session["access_token"]}"}})
+			r = request_user.get
+			user = JSON.parse r
+			Rails.logger.info user.to_json
+			redirect_url = "http://london.sense.city/scwebsubmit.html?name=#{user["first_name"]}%0A#{user["last_name"]}&email=#{user["email"]}"
+			redirect_to redirect_url and return
+			#render :json => {:status => "OK"}
 		end
 	end
 	def digital_town_login
@@ -47,4 +55,4 @@
 		redirect_to london_sense_path
 	end
 end
-]
+
