@@ -1,0 +1,31 @@
+<div class="form-signin" style="margin-top:100px;border: 1px solid #1caf9a;padding-top:0px;" >
+        <div class="row" style="background-color: #1caf9a; margin-bottom:10px">
+                <div style="font-size: 18px;text-align: center;height:50px; padding-top: 10px;">
+                        <span style="color:white">sense.city</span>
+                </div>
+        </div>
+        <div class="row" style="text-align:center">
+                <%= link_to "Login", @login_url, :class => "btn btn-primary modal_login" %>
+                <%= link_to "Register", @register_url, :class => "btn btn-success modal_login" %>
+        </div>
+        <div class="row" style="text-align:center; padding-top:10px;">
+                <span>Sign In or Create <a href="https://account.digitaltown.com/">Digital Town</a> account</span>
+        </div>
+        <div class="modal fade" id="modal_dlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        </div>
+</div>
+<script>
+       /* $('.modal_login').click(function(e) {
+                e.preventDefault();
+                href = $(this).attr('href');
+                $.ajax({
+                        url: href,
+                        method: "GET",
+                        success: function(e) {
+                                $("#modal_dlg").html(e);
+                                $("#modal_dlg").modal('show');
+                        }
+                });
+                
+        } );*/
+</script>
